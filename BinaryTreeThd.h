@@ -148,6 +148,32 @@ public:
 		}
 		cout << endl;
 	}
+	//优势所在，右边的索引--
+	void NewInOrder()
+	{
+		Node* cur = _root;
+		while (cur)
+		{
+			while (cur->_leftTag == LINK)
+				cur = cur->_left;
+
+			cout << cur->_data << " ";
+
+			while (cur->_rightTag == THREAD)
+			{
+				cur = cur->_right;
+				if (cur == NULL)
+				{
+					cout << endl;
+					return;
+				}
+				cout << cur->_data << " ";
+			}
+
+			cur = cur->_right;
+		}
+
+	}
 
 protected:
 	//递归实现线索化二叉树
